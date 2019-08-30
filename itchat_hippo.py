@@ -17,7 +17,12 @@ chatrooms= {}
 @itchat.msg_register([TEXT, PICTURE, FRIENDS, CARD, MAP, SHARING, RECORDING, ATTACHMENT, VIDEO], isGroupChat=True)
 def receive_msg(msg):
 	if 'ActualNickName' in msg:
-		group_id = msg['ToUserName']
+		group_id = msg['FromUserName']
+
+		if msg['FromUserName'] != '@':
+			print("来自自己的消息")
+			group_id = msg['ToUserName']  # 来自哪个群聊
+
 		group_name = chatrooms[group_id]
 		from_user_name = msg['ActualNickName']  # 谁发的
 		if group_name in data:
