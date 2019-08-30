@@ -19,7 +19,7 @@ def receive_msg(msg):
 	if 'ActualNickName' in msg:
 		group_id = msg['FromUserName']
 
-		if msg['FromUserName'] != '@':
+		if group_id[1] != '@':
 			print("来自自己的消息")
 			group_id = msg['ToUserName']  # 来自哪个群聊
 
