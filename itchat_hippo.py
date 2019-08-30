@@ -60,7 +60,6 @@ def receive_msg(msg):
 		summary_x['huoyuwrenshu'] = len(mem_l)
 		if summary_x['huoyuwrenshu'] != 0:
 			summary_x['huoyuedu'] = summary_x['huoyuwrenshu']/float(summary_x['qunrenshu'])
-		else:
 		summary_x['yonghu'] = mem_l
 		summary.append(summary_x)
 	f=open('data.json', 'w')
